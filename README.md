@@ -115,12 +115,14 @@ Devuelve `token` y `tipo`. La documentación interactiva está en
 | `vendedor` | VENDEDOR |
 | `almacen` | ALMACENERO |
 
-Sus contraseñas de prueba están en el comentario de cabecera de ese archivo
-(se guardan cifradas con BCrypt en la base). Son datos semilla de desarrollo:
-se cambian después del primer ingreso y no se usan en producción.
+Sus contraseñas de prueba **no están en el repositorio**: se guardan cifradas
+con BCrypt en la base y se entregan al evaluador por un canal aparte. Son datos
+semilla de desarrollo: se cambian después del primer ingreso y no se usan en
+producción.
 
-> Las migraciones V1–V3 no se editan: Flyway guarda su suma de verificación y
-> una base existente dejaría de validar.
+> En el perfil `dev`, `FlywayDevConfig` ejecuta `repair()` antes de migrar.
+> Así una base creada antes de editar el comentario de V3 actualiza su suma de
+> verificación sin volver a ejecutar ninguna migración.
 
 ## 7. Acceso desde un celular real
 
